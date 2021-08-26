@@ -1,7 +1,15 @@
 import debounce from 'lodash.debounce';
 import { alert, defaultModules } from '../node_modules/@pnotify/core/dist/PNotify.js';
+import { error, info, notice } from "@pnotify/core";
 import fetchCountries from './fetchCountries';
 import countryTemplate from './templates/countryTemplate.hbs';
+
+import "@pnotify/core/dist/Material.css";
+import "material-design-icons/iconfont/material-icons.css";
+import { defaults } from "@pnotify/core";
+
+defaults.styling = "material";
+defaults.icons = "material";
 
 
 const refs = {
@@ -14,7 +22,9 @@ input.addEventListener('input', debounce(searchCountry, 500));
 
 
 function searchCountry() {
-    let value = input.value;
+    clearInput();
+    
+    let value = refs.input.value;
     
     fetchCountries(value)
         .then(data => updateTemplate(data))
@@ -25,5 +35,32 @@ function searchCountry() {
 function updateTemplate(data) {
     const markup = countryTemplate(data);
 
-    refs.countryList.insertAdjacentHTML('beforeend', markup);
+    if (!data.length || data.length === "") {
+    info({
+      text: `You enter empty string or Please enter more specific query`,
+    });
+    };
+
+    if (data.status === 404) {
+    error({
+      text: "No country has been found. Please enter a more specific query!",
+    });
+    }
+
+    if (data.length > 10) {
+    notice({
+      text: `Please enter a more specific query !`,
+    });
+    }
+    
+    if (data.length === 1) {
+    refs.countryList.innerHTML = "";
+    refs.countryList.insertAdjacentHTML("beforeend", markup);
+  }
+
+  
+}
+
+function clearInput() {
+    refs.countryList.innerHTML = "";
 }
