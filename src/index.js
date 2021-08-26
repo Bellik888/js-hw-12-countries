@@ -1,1 +1,0 @@
-import fetchCountries from './fetchCountries';
