@@ -45,6 +45,14 @@ body {
 .country-info h2 {
     font-size: 30px;
 }
+.country-list{
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+.tittle-country-list{
+    font-size: 20px;
+    color: rgb(5, 233, 233);
+}
 
 
 /*# sourceMappingURL=/style.78032849.css.map */
