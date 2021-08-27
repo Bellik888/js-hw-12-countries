@@ -569,19 +569,19 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/@pnotify/core/dist/Material.css":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"../node_modules/material-design-icons/iconfont/material-icons.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/material-design-icons/iconfont/material-icons.css":[function(require,module,exports) {
+},{"./MaterialIcons-Regular.eot":[["MaterialIcons-Regular.2db9611a.eot","../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.eot"],"../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.eot"],"./MaterialIcons-Regular.woff2":[["MaterialIcons-Regular.82fa521b.woff2","../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2"],"../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2"],"./MaterialIcons-Regular.woff":[["MaterialIcons-Regular.45a081e5.woff","../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff"],"../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff"],"./MaterialIcons-Regular.ttf":[["MaterialIcons-Regular.7b7f9df0.ttf","../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.ttf"],"../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.ttf"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/@pnotify/core/dist/BrightTheme.css":[function(require,module,exports) {
 
         var reloadCSS = require('_css_loader');
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
-},{"./MaterialIcons-Regular.eot":[["MaterialIcons-Regular.2db9611a.eot","../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.eot"],"../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.eot"],"./MaterialIcons-Regular.woff2":[["MaterialIcons-Regular.82fa521b.woff2","../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2"],"../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff2"],"./MaterialIcons-Regular.woff":[["MaterialIcons-Regular.45a081e5.woff","../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff"],"../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.woff"],"./MaterialIcons-Regular.ttf":[["MaterialIcons-Regular.7b7f9df0.ttf","../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.ttf"],"../node_modules/material-design-icons/iconfont/MaterialIcons-Regular.ttf"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"fetchCountries.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"fetchCountries.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2839,9 +2839,9 @@ var _lodash = _interopRequireDefault(require("lodash.debounce"));
 
 var _core = require("@pnotify/core");
 
-require("@pnotify/core/dist/Material.css");
-
 require("material-design-icons/iconfont/material-icons.css");
+
+require("@pnotify/core/dist/BrightTheme.css");
 
 var _fetchCountries = _interopRequireDefault(require("./fetchCountries"));
 
@@ -2852,8 +2852,9 @@ var _countryList = _interopRequireDefault(require("./templates/countryList.hbs")
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // import { alert, defaultModules } from '../node_modules/@pnotify/core/dist/PNotify.js';
-_core.defaults.styling = "material";
-_core.defaults.icons = "material";
+// import "@pnotify/core/dist/Material.css";
+// defaults.styling = "material";
+// defaults.icons = "material";
 const refs = {
   input: document.querySelector('#input'),
   countryList: document.querySelector('.country-list')
@@ -2870,7 +2871,7 @@ function updateTemplate(data) {
   const markup = (0, _countryTemplate.default)(data);
   const markupList = (0, _countryList.default)(data);
 
-  if (data.length === "") {
+  if (!data.length || data.length === "") {
     (0, _core.info)({
       text: `You enter empty string `
     });
@@ -2903,7 +2904,7 @@ function updateTemplate(data) {
 function clearInput() {
   refs.countryList.innerHTML = "";
 }
-},{"lodash.debounce":"../node_modules/lodash.debounce/index.js","@pnotify/core":"../node_modules/@pnotify/core/dist/PNotify.js","@pnotify/core/dist/Material.css":"../node_modules/@pnotify/core/dist/Material.css","material-design-icons/iconfont/material-icons.css":"../node_modules/material-design-icons/iconfont/material-icons.css","./fetchCountries":"fetchCountries.js","./templates/countryTemplate.hbs":"templates/countryTemplate.hbs","./templates/countryList.hbs":"templates/countryList.hbs"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"lodash.debounce":"../node_modules/lodash.debounce/index.js","@pnotify/core":"../node_modules/@pnotify/core/dist/PNotify.js","material-design-icons/iconfont/material-icons.css":"../node_modules/material-design-icons/iconfont/material-icons.css","@pnotify/core/dist/BrightTheme.css":"../node_modules/@pnotify/core/dist/BrightTheme.css","./fetchCountries":"fetchCountries.js","./templates/countryTemplate.hbs":"templates/countryTemplate.hbs","./templates/countryList.hbs":"templates/countryList.hbs"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;

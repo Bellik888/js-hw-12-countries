@@ -1,17 +1,18 @@
 import debounce from 'lodash.debounce';
 // import { alert, defaultModules } from '../node_modules/@pnotify/core/dist/PNotify.js';
 import { error, info, notice } from "@pnotify/core";
-import "@pnotify/core/dist/Material.css";
+// import "@pnotify/core/dist/Material.css";
 import "material-design-icons/iconfont/material-icons.css";
 import { defaults } from "@pnotify/core";
+import '@pnotify/core/dist/BrightTheme.css';
 
 
 import fetchCountries from './fetchCountries';
 import countryTemplate from './templates/countryTemplate.hbs';
 import countryList from './templates/countryList.hbs';
 
-defaults.styling = "material";
-defaults.icons = "material";
+// defaults.styling = "material";
+// defaults.icons = "material";
 
 
 const refs = {
@@ -37,7 +38,7 @@ function updateTemplate(data) {
     const markup = countryTemplate(data);
     const markupList = countryList(data);
 
-    if (data.length === "") {
+    if (!data.length || data.length === "") {
     info({
       text: `You enter empty string `,
     });
